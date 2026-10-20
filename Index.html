@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rahma Cesa Andhini — Dapur & Cerita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍲</text></svg>">
+<style>
+  :root{
+    --cream:#FFF5F8;
+    --cream-2:#FBE3EC;
+    --paprika:#E8628C;
+    --paprika-dark:#C94A72;
+    --sage:#C97AA6;
+    --choco:#6B2C43;
+    --peach:#F9D2E2;
+    --ink:#4A2C39;
+    --card-shadow: 0 10px 28px rgba(107,44,67,.08);
+    --radius-lg: 26px;
+    --radius-sm: 14px;
+    padding-top: env(safe-area-inset-top,0px);
+    padding-bottom: env(safe-area-inset-bottom,0px);
+  }
+  :root:not([data-theme="light"]) { color-scheme: light; }
+  html{scroll-padding-top: calc(78px + env(safe-area-inset-top,0px)); scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Nunito Sans',system-ui,sans-serif;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display-serif{font-family:'Fraunces',Georgia,serif;}
+  a{text-decoration:none;}
+
+  /* Navbar */
+  .navbar-kawali{
+    background:rgba(251,243,232,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(62,39,35,.08);
+    padding-top: calc(.7rem + env(safe-area-inset-top,0px));
+  }
+  .brand-badge{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--paprika); color:#fff; font-family:'Fraunces',serif; font-weight:600;
+    display:flex;align-items:center;justify-content:center; font-size:1.05rem;
+  }
+  .navbar-kawali .nav-link{color:var(--choco); font-weight:700; margin:0 .35rem;}
+  .navbar-kawali .nav-link:hover{color:var(--paprika);}
+  .btn-paprika{
+    background:var(--paprika); border:none; color:#fff; font-weight:700;
+    border-radius:999px; padding:.6rem 1.4rem;
+  }
+  .btn-paprika:hover{background:var(--paprika-dark); color:#fff;}
+  .btn-outline-choco{
+    border:2px solid var(--choco); color:var(--choco); font-weight:700;
+    border-radius:999px; padding:.55rem 1.3rem;
+  }
+  .btn-outline-choco:hover{background:var(--choco); color:#fff;}
+
+  /* Hero */
+  .hero{position:relative; padding:6.5rem 0 5rem; overflow:hidden;}
+  .hero::before{
+    content:""; position:absolute; top:-120px; right:-140px; width:420px; height:420px;
+    background:var(--peach); border-radius:50%; opacity:.6; z-index:0;
+  }
+  .hero-eyebrow{color:var(--paprika); font-weight:800; letter-spacing:.02em;}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.3rem); line-height:1.05; color:var(--choco);}
+  .hero h1 em{color:var(--paprika); font-style:italic;}
+  .hero p.lead{max-width:46ch; color:#5b4b43;}
+  .steam{position:relative; z-index:1;}
+
+  .pot-illustration{
+    position:relative; z-index:1; width:100%; max-width:380px; margin:0 auto;
+  }
+  .pot-illustration svg{width:100%; height:auto;}
+
+  .sticky-tag{
+    position:absolute; background:#FFF6E0; border-radius:10px; padding:.6rem .9rem;
+    box-shadow:var(--card-shadow); font-weight:700; font-size:.85rem; color:var(--choco);
+    transform:rotate(-4deg);
+  }
+
+  /* Sections */
+  section{padding:5rem 0;}
+  .section-tag{
+    display:inline-block; color:var(--paprika); font-weight:800; margin-bottom:.4rem;
+  }
+  .section-title{color:var(--choco); font-size:clamp(1.9rem,3.6vw,2.6rem);}
+
+  .about-photo-wrap{display:flex; justify-content:center;}
+  .about-photo{
+    width:min(320px,80%); aspect-ratio:1/1; border-radius:50%;
+    background:var(--peach); display:flex; align-items:center; justify-content:center;
+    box-shadow:var(--card-shadow); border:6px solid #fff; outline:2px dashed var(--paprika);
+    outline-offset:8px; overflow:hidden;
+  }
+  .about-photo img{width:100%; height:100%; object-fit:cover; border-radius:50%;}
+
+  .card-kawali{
+    background:#fff; border-radius:var(--radius-sm); padding:1.9rem 1.6rem;
+    box-shadow:var(--card-shadow); height:100%; border:1px solid rgba(62,39,35,.05);
+    transition:transform .25s ease;
+  }
+  .card-kawali:hover{transform:translateY(-6px);}
+  .icon-circle{
+    width:52px;height:52px;border-radius:50%; display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem; margin-bottom:1rem;
+  }
+  .bg-sage-soft{background:#F3E1EE; color:var(--sage);}
+  .bg-paprika-soft{background:#FCE0EA; color:var(--paprika);}
+  .bg-peach-soft{background:var(--peach); color:var(--paprika-dark);}
+
+  .bg-warm-band{background:var(--cream-2);}
+
+  .blog-card{
+    background:#fff; border-radius:var(--radius-sm); overflow:hidden; box-shadow:var(--card-shadow); height:100%;
+  }
+  .blog-card .tag{
+    display:inline-block; background:var(--peach); color:var(--paprika-dark); font-weight:700;
+    font-size:.78rem; padding:.25rem .7rem; border-radius:999px; margin-bottom:.6rem;
+  }
+  .blog-thumb{height:160px; background:linear-gradient(135deg,var(--peach),var(--cream-2)); display:flex;align-items:center;justify-content:center; font-size:2.4rem;}
+
+  .contact-wrap{
+    background:var(--choco); border-radius:var(--radius-lg); color:#fff; padding:3.2rem;
+    position:relative; overflow:hidden;
+  }
+  .contact-wrap::after{
+    content:""; position:absolute; bottom:-90px; left:-90px; width:260px;height:260px;
+    background:var(--paprika); opacity:.25; border-radius:50%;
+  }
+  .form-control-kawali{
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.25); color:#fff;
+    border-radius:12px; padding:.75rem 1rem;
+  }
+  .form-control-kawali::placeholder{color:rgba(255,255,255,.55);}
+  .form-control-kawali:focus{
+    background:rgba(255,255,255,.12); border-color:var(--peach); color:#fff; box-shadow:none;
+  }
+  .social-pill{
+    width:42px;height:42px;border-radius:50%; background:rgba(255,255,255,.1); color:#fff;
+    display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,.2);
+  }
+  .social-pill:hover{background:var(--paprika); border-color:var(--paprika);}
+
+  footer{color:#7a675e; font-size:.9rem;}
+
+  @media (max-width:767px){
+    .hero{padding:5.5rem 0 3rem; text-align:center;}
+    .hero p.lead{margin-left:auto;margin-right:auto;}
+    .sticky-tag{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-kawali fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#beranda">
+      <span class="brand-badge">RC</span>
+      <span class="fw-bold" style="color:var(--choco)">Rahma Cesa</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+        <li class="nav-item"><a class="nav-link" href="#keseharian">Keseharian</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cerita-dapur">Cerita Dapur</a></li>
+        <li class="nav-item ms-lg-2"><a class="btn btn-paprika" href="#kontak">Sapa Saya</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="beranda">
+  <div class="container position-relative">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6 steam">
+        <p class="hero-eyebrow mb-2">Halo, saya</p>
+        <h1 class="mb-3">Rahma Cesa Andhini<br><em></em></h1>
+        <p class="lead fs-5 mb-4">Mahasiswa Sistem Informasi yang paling betah menghabiskan waktu di dapur — meracik bumbu, mencoba resep baru, dan berbagi masakan dengan orang-orang terdekat.</p>
+        <div class="d-flex flex-wrap gap-3 justify-content-lg-start justify-content-center">
+          <a href="#cerita-dapur" class="btn btn-paprika">Lihat Cerita Dapur</a>
+          <a href="#tentang" class="btn btn-outline-choco">Kenalan Dulu</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="pot-illustration">
+          <svg viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="180" cy="290" rx="140" ry="14" fill="#3E2723" opacity=".08"/>
+            <path d="M70 150 h220 l-14 90 a20 20 0 0 1-20 17 H104 a20 20 0 0 1-20-17 Z" fill="#E8628C"/>
+            <rect x="60" y="130" width="240" height="28" rx="14" fill="#C94A72"/>
+            <rect x="20" y="136" width="46" height="16" rx="8" fill="#C94A72"/>
+            <rect x="294" y="136" width="46" height="16" rx="8" fill="#C94A72"/>
+            <path d="M95 130 C95 90 130 70 145 95 C155 65 195 65 205 95 C220 70 255 90 255 130 Z" fill="#F9D2E2"/>
+            <circle cx="150" cy="60" r="8" fill="#FBE3EC" opacity=".9"/>
+            <circle cx="185" cy="40" r="10" fill="#FBE3EC" opacity=".8"/>
+            <circle cx="215" cy="62" r="7" fill="#FBE3EC" opacity=".9"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-5">
+        <div class="about-photo-wrap">
+          <div class="about-photo">
+            <img src="Foto saya.jpeg" viewBox="0 0 24 24" fill="none" stroke="#C94A72" stroke-width="1.3">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <span class="section-tag">Tentang Saya</span>
+        <h2 class="section-title mb-3">Suka masak sejak dapur rumah jadi tempat pelarian</h2>
+        <p class="fs-5" style="color:#5b4b43">Saya Rahma Cesa Andhini, mahasiswa Sistem Informasi di Universitas Musamus Merauke. Di sela kuliah, saya paling senang berada di dapur — mencoba resep dari internet, memodifikasinya sesuai selera keluarga, lalu menikmati hasilnya bersama orang-orang tersayang.</p>
+        <p class="fs-5" style="color:#5b4b43">Buat saya, memasak itu sederhana: bahan seadanya, sedikit percobaan, dan banyak rasa syukur ketika masakan akhirnya matang sempurna.</p>
+        <div class="row g-3 mt-2">
+          <div class="col-6 col-sm-4">
+            <div class="fw-bold fs-3" style="color:var(--paprika)">5+</div>
+            <div class="small text-muted">tahun hobi masak</div>
+          </div>
+          <div class="col-6 col-sm-4">
+            <div class="fw-bold fs-3" style="color:var(--paprika)">30+</div>
+            <div class="small text-muted">resep dicoba</div>
+          </div>
+          <div class="col-6 col-sm-4">
+            <div class="fw-bold fs-3" style="color:var(--paprika)">1</div>
+            <div class="small text-muted">dapur kesayangan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KESEHARIAN -->
+<section id="keseharian" class="bg-warm-band">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-tag">Keseharian</span>
+      <h2 class="section-title">Hal-hal kecil yang saya lakukan tiap hari</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card-kawali">
+          <div class="icon-circle bg-paprika-soft">🍳</div>
+          <h3 class="fs-5 fw-bold mb-2">Masak untuk keluarga</h3>
+          <p class="text-muted mb-0">Menyiapkan sarapan atau makan malam sederhana sambil dengar musik favorit.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card-kawali">
+          <div class="icon-circle bg-sage-soft">📖</div>
+          <h3 class="fs-5 fw-bold mb-2">Coba resep baru</h3>
+          <p class="text-muted mb-0">Setiap minggu selalu ada satu resep baru yang ingin dicoba, gagal pun tetap seru.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card-kawali">
+          <div class="icon-circle bg-peach-soft">☕</div>
+          <h3 class="fs-5 fw-bold mb-2">Ngeteh sore</h3>
+          <p class="text-muted mb-0">Waktu santai favorit — teh atau kopi hangat ditemani camilan buatan sendiri.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card-kawali">
+          <div class="icon-circle bg-paprika-soft">🧺</div>
+          <h3 class="fs-5 fw-bold mb-2">Belanja bahan segar</h3>
+          <p class="text-muted mb-0">Mampir ke pasar untuk memilih sayur dan bumbu segar sebelum mulai memasak.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERITA DAPUR -->
+<section id="cerita-dapur">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5">
+      <div>
+        <span class="section-tag">Cerita Dapur</span>
+        <h2 class="section-title mb-0">Catatan kecil dari dapur</h2>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="blog-card">
+          <div class="blog-thumb">🍛</div>
+          <div class="p-4">
+            <span class="tag">Resep</span>
+            <h3 class="fs-5 fw-bold">Nasi goreng sisa semalam</h3>
+            <p class="text-muted mb-0">Cara sederhana mengubah nasi sisa jadi hidangan yang tetap dinanti.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="blog-card">
+          <div class="blog-thumb">🍪</div>
+          <div class="p-4">
+            <span class="tag">Cerita</span>
+            <h3 class="fs-5 fw-bold">Belajar bikin kue pertama kali</h3>
+            <p class="text-muted mb-0">Gagal dua kali sebelum akhirnya menemukan takaran yang pas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="blog-card">
+          <div class="blog-thumb">🥗</div>
+          <div class="p-4">
+            <span class="tag">Tips</span>
+            <h3 class="fs-5 fw-bold">Menyimpan sayur agar tahan lama</h3>
+            <p class="text-muted mb-0">Trik kecil supaya bahan segar tidak cepat layu di kulkas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak" class="bg-warm-band">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="row gy-4 position-relative">
+        <div class="col-lg-5">
+          <span class="section-tag" style="color:var(--peach)">Kontak</span>
+          <h2 class="section-title text-white mb-3">Yuk, ngobrol soal masak-masak</h2>
+          <p class="text-white-50 mb-4">Punya rekomendasi resep atau sekadar mau say hello? Kirim pesan, ya.</p>
+          <div class="d-flex gap-3">
+            <a href="#" class="social-pill" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+            </a>
+            <a href="#" class="social-pill" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            </a>
+            <a href="#" class="social-pill" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.5 8.5 0 11-4.1-7.3L21 3l-1.2 4A8.4 8.4 0 0121 11.5z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <form>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <input type="text" class="form-control form-control-kawali" placeholder="Nama Anda">
+              </div>
+              <div class="col-sm-6">
+                <input type="email" class="form-control form-control-kawali" placeholder="Email Anda">
+              </div>
+              <div class="col-12">
+                <textarea class="form-control form-control-kawali" rows="4" placeholder="Tulis pesan di sini..."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="button" class="btn btn-paprika w-100 w-sm-auto">Kirim Pesan</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center py-4">
+  <div class="container">
+    &copy; 2026 Rahma Cesa Andhini — Dibuat dengan secangkir teh dan sedikit bumbu dapur.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
